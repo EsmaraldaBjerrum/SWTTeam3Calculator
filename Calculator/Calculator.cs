@@ -35,5 +35,15 @@ namespace Calculator
            Accumulator = result;
          return result;
         }
+
+        public void Clear()
+        {
+            Accumulator = 0; 
+        }
+
+        public double Divide(double a, double b)
+        {
+            return a / b;
+        }
     }
 }
