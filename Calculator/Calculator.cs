@@ -38,6 +38,8 @@ namespace Calculator
 
         public double Divide(double a, double b)
         {
+            if (b == 0)
+                throw new System.DivideByZeroException();
             return a / b;
         }
     }

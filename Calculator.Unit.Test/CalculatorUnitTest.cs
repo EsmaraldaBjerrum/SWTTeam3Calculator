@@ -62,5 +62,22 @@ namespace Calculator.Unit.Test
         {
             Assert.That(uut.Power(a, b), Is.InRange(c - 0.001, c + 0.001));
         }
+
+        [Test]
+        [TestCase(1, 3, 0.3333)]
+        [TestCase(-5, 2, -2.5)]
+        [TestCase(-5, -1, 5)]
+        [TestCase(-5, 0.2, -25)]
+        [TestCase(2.6, 2, 1.3)]
+        public void Divide_aDividedByb_Resultc(double a, double b, double c)
+        {
+            Assert.That(uut.Divide(a, b), Is.InRange(c - 0.001, c + 0.001));
+        }
+
+        [Test]
+        public void Divide_aDividedBy0_ResultException(double a, double b, double c)
+        {
+            //Indsæt kode
+        }
     }
 }
