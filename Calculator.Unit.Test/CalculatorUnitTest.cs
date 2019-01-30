@@ -62,5 +62,53 @@ namespace Calculator.Unit.Test
         {
             Assert.That(uut.Power(a, b), Is.InRange(c - 0.001, c + 0.001));
         }
-    }
+
+       [Test]
+       [TestCase(1, 3, 4)]
+       [TestCase(-5, 3, -2)]
+       [TestCase(-5, -3, -8)]
+       [TestCase(-5, 5, 0)]
+       [TestCase(-5.9, 3.5, -2.4)]
+       public void Add_aPlusb_Accumulator(double a, double b, double c)
+       {
+          double result = uut.Add(a, b);
+          Assert.That(result, Is.EqualTo(uut.Accumulator));
+       }
+
+       [Test]
+       [TestCase(1, 3, -2)]
+       [TestCase(-5, 3, -8)]
+       [TestCase(-5, -3, -2)]
+       [TestCase(-5, 5, -10)]
+       [TestCase(-5.9, 3.5, -9.4)]
+       public void Subtract_aMinusb_Accumulator(double a, double b, double c)
+       {
+          double result = uut.Subtract(a, b);
+         Assert.That(result, Is.EqualTo(uut.Accumulator));
+       }
+
+       [Test]
+       [TestCase(1, 3, 3)]
+       [TestCase(-5, 3, -15)]
+       [TestCase(-5, -3, 15)]
+       [TestCase(-5, 0, 0)]
+       [TestCase(-5, 3.5, -17.5)]
+       public void Multiply_aTimesb_Accumulator(double a, double b, double c)
+       {
+          double result = uut.Multiply(a, b);
+         Assert.That(result, Is.EqualTo(uut.Accumulator));
+       }
+
+       [Test]
+       [TestCase(1, 3, 1)]
+       [TestCase(-5, 3, -125)]
+       [TestCase(-5, -1, -0.2)]
+       [TestCase(-5, 0, 1)]
+       [TestCase(2.5, 2, 6.25)]
+       public void Power_aPoweredByb_Accumulator(double a, double b, double c)
+       {
+          double result = uut.Power(a, b);
+         Assert.That(result, Is.EqualTo(uut.Accumulator));
+       }
+   }
 }
