@@ -110,11 +110,7 @@ namespace Calculator.Unit.Test
           double result = uut.Power(a, b);
          Assert.That(result, Is.EqualTo(uut.Accumulator));
        }
-   }
-
-
-
-        
+     
 
         [Test]
         [TestCase(1, 3, 4)]
@@ -177,9 +173,13 @@ namespace Calculator.Unit.Test
         }
 
         [Test]
-        public void Divide_aDividedBy0_ResultException(double a, double b, double c)
+        [TestCase(1,0)]
+        [TestCase(3,0)]
+        public void Divide_aDividedBy0_ResultException(double a, double b)
         {
-            //Indsæt kode
+            Assert.That(() => uut.Divide(a,b), Throws.TypeOf<DivideByZeroException>());
+            //uut.Divide(a, 0);
+            //Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
         }
     }
 }
