@@ -8,6 +8,7 @@ namespace Calculator
 {
     public class Calculator
     {
+        public double Accumulator;
         public double Add(double a, double b)
         {
             double result = a + b;
@@ -28,6 +29,11 @@ namespace Calculator
         {
             double result = Math.Pow(x, exp);
             return result;
+        }
+
+        public void Clear()
+        {
+            Accumulator = 0; 
         }
     }
 }
