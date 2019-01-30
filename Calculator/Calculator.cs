@@ -8,11 +8,13 @@ namespace Calculator
 {
     public class Calculator
     {
-        public double Accumulator =0;
-        public double Add(double a, double b)
+       public double Accumulator { get; private set; } = 0;
+         public double Add(double a, double b)
         {
             double result = a + b;
-            return result;
+           Accumulator = result;
+
+           return result;
         }
 
         public double Add(double a)
@@ -24,7 +26,8 @@ namespace Calculator
         public double Subtract(double a, double b)
         {
             double result = a - b;
-            return result;
+           Accumulator = result;
+         return result;
         }
         public double Subtract(double a)
         {
@@ -35,7 +38,8 @@ namespace Calculator
         public double Multiply(double a, double b)
         {
             double result = a * b;
-            return result;
+           Accumulator = result;
+         return result;
         }
 
         public double Multiply(double a)
@@ -47,7 +51,8 @@ namespace Calculator
         public double Power(double x, double exp)
         {
             double result = Math.Pow(x, exp);
-            return result;
+           Accumulator = result;
+         return result;
         }
 
         public double Power(double exp)
@@ -59,6 +64,11 @@ namespace Calculator
         public void Clear()
         {
             Accumulator = 0; 
+        }
+
+        public double Divide(double a, double b)
+        {
+            return a / b;
         }
     }
 }
