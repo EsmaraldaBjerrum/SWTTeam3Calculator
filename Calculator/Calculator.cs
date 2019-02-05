@@ -73,5 +73,12 @@ namespace Calculator
             return a / b;
             
         }
+
+        public double Divide(double a)
+        {
+            if (a == 0)
+                throw new System.DivideByZeroException();
+            return Accumulator / a;
+        }
     }
 }
