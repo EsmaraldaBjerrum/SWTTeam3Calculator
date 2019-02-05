@@ -113,9 +113,6 @@ namespace Calculator.Unit.Test
    
 
 
-
-        
-
         [Test]
         [TestCase(1, 3, 4)]
         [TestCase(-5, 3, -2)]
@@ -163,6 +160,27 @@ namespace Calculator.Unit.Test
         {
             uut.Accumulator = a;
             Assert.That(uut.Power(b), Is.InRange(c - 0.001, c + 0.001));
+        }
+
+        [Test]
+        [TestCase(1, 3, 0.3333)]
+        [TestCase(-5, 2, -2.5)]
+        [TestCase(-5, -1, 5)]
+        [TestCase(-5, 0.2, -25)]
+        [TestCase(2.6, 2, 1.3)]
+        public void Divide_aDividedByb_Resultc(double a, double b, double c)
+        {
+            Assert.That(uut.Divide(a, b), Is.InRange(c - 0.001, c + 0.001));
+        }
+
+        [Test]
+        [TestCase(1,0)]
+        [TestCase(3,0)]
+        public void Divide_aDividedBy0_ResultException(double a, double b)
+        {
+            Assert.That(() => uut.Divide(a,b), Throws.TypeOf<DivideByZeroException>());
+            //uut.Divide(a, 0);
+            //Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
         }
     }
 }

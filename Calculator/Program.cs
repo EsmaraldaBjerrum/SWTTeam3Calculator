@@ -18,6 +18,16 @@ namespace Calculator
 
             //Og svaret er at det ville være herre nice at kunne unitteste. Wow!
             Console.ReadKey();
+
+            //try
+            //{
+            //    calculator.Divide(3, 0);
+            //}
+            //catch (DivideByZeroException e)
+            //{
+            //    Console.WriteLine(e);
+            //    throw;
+            //}
         }
     }
 }
