@@ -110,7 +110,7 @@ namespace Calculator.Unit.Test
           double result = uut.Power(a, b);
          Assert.That(result, Is.EqualTo(uut.Accumulator));
        }
-   }
+   
 
 
 
