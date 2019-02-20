@@ -176,9 +176,22 @@ namespace Calculator.Unit.Test
         [Test]
         [TestCase(1,0)]
         [TestCase(3,0)]
+        [TestCase(5, 0)]
         public void Divide_aDividedBy0_ResultException(double a, double b)
         {
             Assert.That(() => uut.Divide(a,b), Throws.TypeOf<DivideByZeroException>());
+            //uut.Divide(a, 0);
+            //Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
+        }
+
+        [Test]
+        [TestCase(1, 0)]
+        [TestCase(3, 0)]
+        [TestCase(5, 0)]
+        public void DivideOneNumber_aDividedBy0_ResultException(double a, double b)
+        {
+            uut.Accumulator = a;
+            Assert.That(() => uut.Divide(b), Throws.TypeOf<DivideByZeroException>());
             //uut.Divide(a, 0);
             //Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
         }
