@@ -205,7 +205,7 @@ namespace Calculator.Unit.Test
         public void DivideOneNumber_AccumolatoraDividedByb_Resultc(double a, double b, double c)
         {
             uut.Accumulator = a;
-            Assert.That(uut.Divide(uut.Accumulator, b), Is.InRange(c - 0.001, c + 0.001));
+            Assert.That(uut.Divide(b), Is.InRange(c - 0.001, c + 0.001));
         }
 
         [Test]
