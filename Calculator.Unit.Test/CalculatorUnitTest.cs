@@ -197,6 +197,18 @@ namespace Calculator.Unit.Test
         }
 
         [Test]
+        [TestCase(1, 3, 0.3333)]
+        [TestCase(-5, 2, -2.5)]
+        [TestCase(-5, -1, 5)]
+        [TestCase(-5, 0.2, -25)]
+        [TestCase(2.6, 2, 1.3)]
+        public void DivideOneNumber_AccumolatoraDividedByb_Resultc(double a, double b, double c)
+        {
+            uut.Accumulator = a;
+            Assert.That(uut.Divide(uut.Accumulator, b), Is.InRange(c - 0.001, c + 0.001));
+        }
+
+        [Test]
         [TestCase(1, 0)]
         [TestCase(3, 0)]
         [TestCase(5, 0)]
