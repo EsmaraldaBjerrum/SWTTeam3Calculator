@@ -195,5 +195,16 @@ namespace Calculator.Unit.Test
             //uut.Divide(a, 0);
             //Assert.Catch<DivideByZeroException>(() => uut.Divide(a, b));
         }
+
+        [Test]
+        [TestCase(1, 0)]
+        [TestCase(3, 0)]
+        [TestCase(5, 0)]
+        public void Clear_AccumolatorIsa_ReturnsZero(double a, double b)
+        {
+            uut.Accumulator = a;
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
     }
 }
